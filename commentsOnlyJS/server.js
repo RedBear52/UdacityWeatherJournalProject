@@ -34,5 +34,6 @@ app.get('/all', sendProjectData)
 // Post Route
 const updateData = (req, res) => {
     res.send('POST receiveed')
+    console.log(req.body)
 }
 app.post('/', updateData) 
