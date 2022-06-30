@@ -3,7 +3,7 @@ const projectData = {}
 // Express to run server and routes
 const express = require('express')
 // Start up an instance of app
-const app = express()
+const app = express();
 /* Dependencies */
 const bodyParser = require('body-parser')
 /* Middleware*/
@@ -25,13 +25,14 @@ app.get('/', (req, res) => {
     res.send('Howdy Multiverse!')
 })
 // Initialize all route with a callback function
-app.get('/all', sendProjectData)
-// Callback function to complete GET '/all'
 const sendProjectData = (req, res) => {
     res.send(projectData)
 }
+// Callback function to complete GET '/all'
+app.get('/all', sendProjectData)
+
 // Post Route
-app.post('/', updateData) 
 const updateData = (req, res) => {
     res.send('POST receiveed')
 }
+app.post('/', updateData) 
