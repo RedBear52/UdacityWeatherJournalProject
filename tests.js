@@ -22,7 +22,7 @@ const server = app.listen(port, () => {
 })
 // Callback to debug
 app.get('/', (req, res) => {
-    res.send('Howdy Multiverse!')
+      res.send('Howdy Multiversians.  Prepare to be terminated...chu mp!' )
 })
 // Initialize all route with a callback function
 const sendProjectData = (req, res) => {
@@ -31,10 +31,21 @@ const sendProjectData = (req, res) => {
 // Callback function to complete GET '/all'
 app.get('/all', sendProjectData)
 
+
+// const sendNameNumber = (req, res) => {
+//     const userData = req.params;
+//     const name = userData.name
+//     const num = userData.num
+//     res.send(`Yo, ${name}. You up for ${num} spankins?`)
+// }
+// app.get('/:name/:num', sendNameNumber)
+
+
+
+
 // Post Route
-const data = []
 const updateData = (req, res) => {
     res.send('POST receiveed')
-    data.push(req.body)
+    console.log(req.body)
 }
 app.post('/', updateData) 
