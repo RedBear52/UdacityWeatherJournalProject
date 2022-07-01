@@ -1,5 +1,5 @@
 // Personal API Key for OpenWeatherMap API
-const apiKey = '267ce61fd9e220068eae2d2fe6893de5'
+
 const baseURL = `http://api.http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`
 
 
