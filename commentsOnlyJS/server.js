@@ -29,23 +29,19 @@ const sendProjectData = (req, res) => {
     res.send(projectData)
 }
 // Callback function to complete GET '/all'
-app.get('/all', sendProjectData)
-
-
-// const sendNameNumber = (req, res) => {
-//     const userData = req.params;
-//     const name = userData.name
-//     const num = userData.num
-//     res.send(`Yo, ${name}. You up for ${num} spankins?`)
-// }
-// app.get('/:name/:num', sendNameNumber)
-
-
-
 
 // Post Route
-const updateData = (req, res) => {
-    res.send('POST receiveed')
+const userAddToProject = (req, res) => {
+    const userInput = req.params.submit
+
+    res.send(`POST received: ${userInput}`)
     console.log(req.body)
 }
-app.post('/', updateData) 
+
+app.get('/add/:submit', userAddToProject)
+
+
+const serverAddtoDatabase = (req, res) => {
+    // const temp = params or some shit
+}
+app.post('/', serverAddtoDatabase) 
