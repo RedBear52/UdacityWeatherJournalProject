@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-const projectData = {}
+let projectData = {}
 // Express to run server and routes
 const express = require('express')
 // Start up an instance of app
@@ -22,26 +22,35 @@ const server = app.listen(port, () => {
 })
 // Callback to debug
 app.get('/', (req, res) => {
-      res.send('Howdy Multiversians.  Prepare to be terminated...chu mp!' )
+      res.send('Howdy Multiversians.  Prepare to be terminated...chump!' )
 })
+
+// ----ROUTES---- //
 // Initialize all route with a callback function
-const sendProjectData = (req, res) => {
+app.get('/all', returnProjectData)
+
+// Callback function to complete GET '/all'
+function returnProjectData(req, res) {
     res.send(projectData)
 }
-// Callback function to complete GET '/all'
 
-// Post Route
-const userAddToProject = (req, res) => {
-    const userInput = req.params.submit
-
-    res.send(`POST received: ${userInput}`)
+// Establish POST Route with a callback function
+const userInputtedData = []
+function addIncomingData(req, res) {
     console.log(req.body)
+    let temp = req.body.temperature
+    let date = req.body.date
+    let userResponse = request.body.userResponse
+    userInputtedData.push(
+        {
+        'temperature': temp,
+        'date': date,
+        'userResponse': userResponse
+        }
+    )
 }
 
-app.get('/add/:submit', userAddToProject)
+app.post('/', addIncomingData)
 
 
-const serverAddtoDatabase = (req, res) => {
-    // const temp = params or some shit
-}
-app.post('/', serverAddtoDatabase) 
+
