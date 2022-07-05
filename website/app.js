@@ -11,7 +11,7 @@ function getWeatherData() {
     console.log('clicking has occured!')
     const zipCode = document.getElementById('zip').value
     const userFeels = document.getElementById('feelings').value
-    const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`
+    const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=imperial`
     console.log(baseURL)
         fetch(baseURL)
             .then(res => res.json())
