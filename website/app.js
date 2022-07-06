@@ -1,7 +1,7 @@
 // const { response } = require("express");
 
 /* Global Variables */
-const apiKey = '4c1981daf5f3a08d2e1183a27d127a40'
+
 
 // Create a new date instance dynamically with JS
 let d = new Date();
