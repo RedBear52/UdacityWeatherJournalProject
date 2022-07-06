@@ -1,10 +1,12 @@
 // Setup empty JS object to act as endpoint for all routes
-let projectData = { temp: '95'}
+let projectData = {}
 // Express to run server and routes
 const express = require('express')
 // Start up an instance of app
 const app = express();
 /* Dependencies */
+
+
 const bodyParser = require('body-parser')
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
@@ -20,7 +22,6 @@ const server = app.listen(port, () => {
     console.log("Server is listening on:")
     console.log(`Port: ${port}`)
 })
-
 // Callback to debug
 app.get('/', (req, res) => {
       res.send('Howdy Multiversians.  Prepare to be terminated...chump!' )
@@ -36,10 +37,22 @@ function returnProjectData(req, res) {
 }
 
 // Establish POST Route with a callback function
-app.post('/add', getUserInput)
-function getUserInput(req, res) {
-    projectData['date'] = req.body.date
-    projectData['temperature'] = req.body.temperature
-    projectData['userResponse'] = req.body.userResponse
-    res.send(projectData)
+const userInputtedData = []
+function addIncomingData(req, res) {
+    console.log(req.body)
+    let temp = req.body.temperature
+    let date = req.body.date
+    let userResponse = request.body.userResponse
+    userInputtedData.push(
+        {
+        'temperature': temp,
+        'date': date,
+        'userResponse': userResponse
+        }
+    )
 }
+
+app.post('/add', addIncomingData)
+
+
+

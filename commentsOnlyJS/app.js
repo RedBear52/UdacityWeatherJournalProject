@@ -3,7 +3,6 @@
 const baseURL = `http://api.http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${process.env.apiKey}`
 
 
-
 // Event listener to add function to existing HTML DOM element
 
 

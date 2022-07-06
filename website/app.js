@@ -1,7 +1,7 @@
 // const { response } = require("express");
 
 /* Global Variables */
-
+apiKey = '1f1c71436e0be4d6b4411cbe642694ba'
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -12,11 +12,11 @@ function getWeatherData() {
     const zipCode = document.getElementById('zip').value
     const userFeels = document.getElementById('feelings').value
     const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=imperial`
-    console.log(baseURL)
         fetch(baseURL)
             .then(res => res.json())
             .then(data => console.log(data))
             .then(console.log(userFeels, zipCode))
+            .post('/')
 }
 
 const button = document.getElementById('generate')
