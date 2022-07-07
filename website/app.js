@@ -13,6 +13,7 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 const postToDataBase = async (dataObj) => {
    const { main } = dataObj
    const temp = parseInt(main.temp)
+
    console.log(temp)
 }
 
