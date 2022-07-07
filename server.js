@@ -6,7 +6,6 @@ const express = require('express')
 const app = express();
 /* Dependencies */
 
-
 const bodyParser = require('body-parser')
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
@@ -29,30 +28,25 @@ app.get('/', (req, res) => {
 
 // ----ROUTES---- //
 // Initialize all route with a callback function
-app.get('/all', returnProjectData)
-
-// Callback function to complete GET '/all'
-function returnProjectData(req, res) {
+app.get('/projectData', (req, res) => {
     res.send(projectData)
-}
+})
 
 // Establish POST Route with a callback function
-const userInputtedData = []
-function addIncomingData(req, res) {
+app.post('/projectData', (req, res) => {
     console.log(req.body)
     let temp = req.body.temperature
     let date = req.body.date
     let userResponse = request.body.userResponse
-    userInputtedData.push(
+    res.send(
         {
         'temperature': temp,
         'date': date,
         'userResponse': userResponse
         }
     )
-}
-
-app.post('/add', addIncomingData)
+    console.log(res)
+})
 
 
 

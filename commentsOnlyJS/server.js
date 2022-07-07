@@ -5,9 +5,9 @@ const express = require('express')
 // Start up an instance of app
 const app = express();
 /* Dependencies */
-require('dotenv').config()
-console.log(process.env)
-const apiKey = process.env.API_KEY
+// require('dotenv').config()
+// console.log(process.env)
+// const apiKey = process.env.API_KEY
 
 
 const bodyParser = require('body-parser')
