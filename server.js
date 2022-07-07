@@ -33,7 +33,7 @@ app.get('/projectData', (req, res) => {
 })
 
 // Establish POST Route with a callback function
-app.post('/projectData', (req, res) => {
+app.post('/add', (req, res) => {
     console.log(req.body)
     let temp = req.body.temperature
     let date = req.body.date

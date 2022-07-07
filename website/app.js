@@ -10,12 +10,32 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // Async function using fetch() to get weather data from app endpoint
-const postToDataBase = async (dataObj) => {
-   const { main } = dataObj
-   const temp = parseInt(main.temp)
+const postToDataBase = async ( url = '', data = {} ) => {
+    console.log(data)
+        const response = await fetch(url, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
 
-   console.log(temp)
+        try {
+            const newData = await response.json()
+            console.log(newData)
+            return(newData)
+        } catch(err) {
+            console.log('error: ', err)
+        }
 }
+
+postToDataBase('/add', { })
+
+// const { main } = dataObj
+//    const temp = parseInt(main.temp)
+
+//    console.log(temp)
 
 // const renderToDOM = async (path, dataObj) => {
 //     console.log(dataObj)
