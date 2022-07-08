@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // Cors for cross origin allowance
 const cors = require('cors')
+app.use(cors())
 
 // Initialize the main project folder
 app.use(express.static('website'))
@@ -28,34 +29,21 @@ const server = app.listen(port, () => {
 })
 
 // ----ROUTES---- //
-// Check initial functionality
+// Test/debug initial functionality
 app.get('/', (req, res) => {
       res.send('Howdy Multiverse!' )
 })
 
-// Initialize projectData route with a callback function
+// Initialize GET route with a callback function
 app.get('/projectData', (req, res) => {
     res.send(projectData)
 })
 
 // Establish POST Route with a callback function
-let userWeatherData = []
 app.post('/add', (req, res) => {
     let clientData = req.body
-
-    newData = {
-        date: clientData.date,
-        temperature: clientData.temperature,
-        userFeelings: clientData.userResponse
-    }
-
-    userWeatherData.push(newData)
-    
-    console.log(userWeatherData)
-    console.log(clientData)
         projectData["date"] = clientData.date
         projectData["temperature"] = clientData.temperature
         projectData["userResponse"] = clientData.userResponse
-
-        res.send(userWeatherData)
+    res.send(projectData)
 })
