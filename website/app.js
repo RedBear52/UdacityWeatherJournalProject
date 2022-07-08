@@ -12,9 +12,9 @@ const showUser = async () => {
     // JSONify data
     const processedData = await request.json()
     // render updated data to the DOM
-    document.getElementById('temp').innerHTML = `TEMPERATURE: ${processedData.temperature} °`
-    document.getElementById('content').innerHTML = `MY FEELINGS: ${processedData.userResponse}`
-    document.getElementById('date').innerHTML = `DATE: ${processedData.date}`
+    document.getElementById('temp').innerHTML = `<h3>TEMPERATURE:</h3>   ${processedData.temperature} °`
+    document.getElementById('content').innerHTML = `<h3>FEELINGS:</h3>   ${processedData.userResponse}`
+    document.getElementById('date').innerHTML = `<h3>DATE:</h3>   ${processedData.date}`
     } catch(err) {
       console.log('err: ', err)
     }
