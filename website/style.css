@@ -10,8 +10,8 @@
     --clr-darkest-font: rgba(0, 0, 0, 1);
     --clr-bright-font: #ff5599;
 
-
-
+    /* button color */
+    --clr-blue-button: rgb(49, 114, 145);
 }
 
 body {
@@ -22,8 +22,12 @@ body {
 
 #app {
     display: grid;
-    /* grid-auto-rows: minmax(150px, auto); */
-    /* grid-template-columns:  */
+    grid-template-areas: 
+    "h h h h"
+    "z z z z"
+    "f f f f"
+    "e e e e"
+    ;
     height:100vh;
     background: var(--clr-light-background);
     color: var(--clr-dark-font);
@@ -36,13 +40,39 @@ body {
 div {
     display: flex;
     align-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.holder.entry{
+.font-style {
+    color: var(--clr-blue-button);
+}
+
+.holder.entry {
+    grid-area: e;
     margin-top: 0;
     background: var(--clr-light-blue-background);
-    min-height: 30vh;
+    flex-direction: column;
+    /* min-height: 30vh; */
+}
+
+.holder.feel {
+    display: flex;
+    flex-direction: column;
+    grid-area: f;
+
+}
+
+.holder.headline {
+    display: flex;
+    flex-direction: column;
+    grid-area: h;
+
+}
+
+.holder.zip {
+    display: flex;
+    flex-direction: column;
+    grid-area: z;
 }
 
 .entry {
@@ -60,13 +90,13 @@ div {
 }
 
 
-.headline {
-    margin-top: 1em;
+.holder.headline {
+    margin-top: 0;
     font-size: xx-large;
 }
 
 div.title {
-    margin-top: -1em;
+    margin-top: 0;
     text-justify: unset;
     color:var(--clr-dark-font)
 }
@@ -93,7 +123,7 @@ input {
 button {
     width: 400px;
     height: 100px;
-    background: rgb(49, 114, 145);
+    background: var(--clr-blue-button);
     color: var(--clr-light-background);
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
@@ -105,6 +135,7 @@ button {
 h1 {
     font-size: 4em;;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 h3 {

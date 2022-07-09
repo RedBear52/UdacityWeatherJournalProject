@@ -12,9 +12,9 @@ const showUser = async () => {
     // JSONify data
     const processedData = await request.json()
     // render updated data to the DOM
-    document.getElementById('temp').innerHTML = `<h3>TEMPERATURE:</h3>   ${processedData.temperature} °`
-    document.getElementById('content').innerHTML = `<h3>FEELINGS:</h3>   ${processedData.userResponse}`
-    document.getElementById('date').innerHTML = `<h3>DATE:</h3>   ${processedData.date}`
+    document.getElementById('temp').innerHTML = `<p> <span class="font-style">TEMPERATURE:</span>  ${processedData.temperature} ° </p>`
+    document.getElementById('content').innerHTML = `<p> <span class="font-style">FEELINGS:</span>  ${processedData.userResponse} </p>`
+    document.getElementById('date').innerHTML = `<p> <span class="font-style">DATE:</span>  ${processedData.date} </p>`
     } catch(err) {
       console.log('err: ', err)
     }
@@ -52,7 +52,7 @@ const getForecast = async () => {
                 temperature: parseInt(data.main.temp), 
                 date: newDate, 
                 userResponse: userFeels 
-            }))
+            })) 
             .then(() => showUser())
 }
 
