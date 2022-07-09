@@ -23,7 +23,7 @@ app.use(express.static('website'))
 
 // Spin up the server
 const port = 3000
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log("Server is listening on:")
     console.log(`Port: ${port}`)
 })
