@@ -6,9 +6,10 @@ const apiKey = '1f1c71436e0be4d6b4411cbe642694ba'
 let d = new Date()
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear()
 
-
+// Validate user input in zip code field
 const zipCodeValidator = () => {
     const zipCode = document.getElementById('zip').value
+    // Reg exp to ensure a five digit code w optional 4 digit extension
     const codeIsValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/
         if (!codeIsValid.test(zipCode))  {
             alert('Please enter a valid zip code')
