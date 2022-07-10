@@ -95,6 +95,10 @@ div.title {
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
+alert {
+    background-color: violet;
+}
+
 label {
     display: block;
     font-size: 27px;

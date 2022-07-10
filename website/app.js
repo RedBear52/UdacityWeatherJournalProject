@@ -15,6 +15,7 @@ const zipCodeValidator = () => {
             alert('Please enter a valid zip code')
         } 
     }   
+
 //Async Function to fetch Data from the App's endpoint then  Render weather data + user data to UI
 const showUser = async () => {
     const request = await fetch('/projectData')
@@ -56,7 +57,6 @@ const getForecast = async () => {
     const zipCode = document.getElementById('zip').value
     const userFeels = document.getElementById('feelings').value
 
-    
     const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=imperial`
         await fetch(baseURL)
             .then(res => res.json())
