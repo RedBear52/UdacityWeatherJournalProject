@@ -4,8 +4,16 @@ const apiKey = '1f1c71436e0be4d6b4411cbe642694ba'
 
 // Create a new date instance dynamically with JS
 let d = new Date()
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear()
+let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear()
 
+
+const zipCodeValidator = () => {
+    const zipCode = document.getElementById('zip').value
+    const codeIsValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/
+        if (!codeIsValid.test(zipCode))  {
+            alert('Please enter a valid zip code')
+        } 
+    }   
 //Async Function to fetch Data from the App's endpoint then  Render weather data + user data to UI
 const showUser = async () => {
     const request = await fetch('/projectData')
@@ -46,6 +54,8 @@ const postToDataBase = async ( url = '', data = {} ) => {
 const getForecast = async () => {
     const zipCode = document.getElementById('zip').value
     const userFeels = document.getElementById('feelings').value
+
+    
     const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=imperial`
         await fetch(baseURL)
             .then(res => res.json())
@@ -59,3 +69,4 @@ const getForecast = async () => {
 
 const button = document.getElementById('generate')
 button.addEventListener('click', getForecast)
+button.addEventListener('click', zipCodeValidator)
